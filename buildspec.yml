@@ -1,24 +1,14 @@
 version: 0.2
-
 phases:
-  install:
-    runtime-versions:
-      nodejs: 14  # 필요한 Node.js 버전을 설정
-    commands:
-      - echo Installing NPM dependencies...
-      - npm install
   pre_build:
     commands:
-      - echo Running lint...
-      - npm run lint
+      - echo Restore started on `date`
   build:
     commands:
-      - echo Running tests...
-      - npm test
-  post_build:
-    commands:
-      - echo Build completed
+      - echo Build started on `date`
 artifacts:
   files:
-    - '**/*'
-  discard-paths: yes
+    - build_output/**/*
+    - scripts/**/*
+    - appspec.yml
+    
